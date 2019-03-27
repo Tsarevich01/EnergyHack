@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EnergyHack.Controllers
+namespace EnergyHackIdentityApp.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -21,7 +23,7 @@ namespace EnergyHack.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value23";
+            return "value";
         }
 
         // POST api/values
@@ -37,8 +39,8 @@ namespace EnergyHack.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("{value}")]
-        public void Delete(string value)
+        [HttpDelete("{id}")]
+        public void Delete(int id)
         {
         }
     }
